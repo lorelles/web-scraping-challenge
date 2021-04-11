@@ -11,7 +11,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 def scrape_info():
 
     # Initialize PyMongo to work with MongoDBs
-    conn = 'mongodb://localhost:27017'
+    conn = 'mongodb://localhost:27017/marsDB'
     client = pymongo.MongoClient(conn)
 
     # Define the 'classDB' database in Mongo
@@ -47,20 +47,31 @@ def scrape_info():
 # news_p = "The name honors recently deceased mission scientist Rafael Navarro-González, who helped lead the team that identified ancient organic compounds on Mars"
 
     news_title = news_soup.find_all('div', class_="content_title")
-    news_p = news_soup.find_all('div', class='article_teaser_body')[0].text
+    news_p = news_soup.find_all('div', class_='article_teaser_body')[0].text
+
+    # return news_title
+    # return news_p
 
     # Store data in dictionary
     mars_data = {
         "news_title": news_title,
         "news_p": news_p
+
+
     }
 
-print(news_title)
-print(news_p)
-print(news_soup)
+    browser.quit()
+    print(mars_data)
+    return mars_data
+    # return news_p
+# console.log(mars_data)
+
+# print(news_title)
+# print(news_p)
+# print(news_soup)
 
 # Close browser after scraping
-browser.quit()
+# browser.quit()
 
-return news_title
-return news_p
+    # return news_title
+    # return news_p

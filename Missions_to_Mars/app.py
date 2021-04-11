@@ -25,7 +25,7 @@ def scraper():
 
     # Run the scrape function
     mars_data = mongo.db.mars_data
-    scraped_data = mars_scraper.scrape()
+    scraped_data = mars_scraper.scrape_info()
 
     # Update the Mongo database using update and upsert=True
     mars_data.update({}, scraped_data, upsert=True)
