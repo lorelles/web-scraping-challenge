@@ -71,7 +71,7 @@ def scrape_info():
 # print(news_soup)
 
 # Close browser after scraping
-# browser.quit()
+browser.quit()
 
     # return news_title
     # return news_p
